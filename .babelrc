@@ -1,11 +1,11 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/env", {
       "targets": {
         "browsers": ["last 2 versions"]
       }
     }],
-    "react"
+    "@babel/react"
   ],
   "plugins": [
     "syntax-dynamic-import",

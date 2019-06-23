@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "i18next": "^17.0.4",
     "lodash": "^4.17.11",
     "mini-css-extract-plugin": "^0.7.0",
     "normalizr": "^3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-i18next": "^10.11.2",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
@@ -48,6 +50,7 @@
     "copy-webpack-plugin": "^5.0.3",
     "file-loader": "4.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "isomorphic-fetch": "^2.2.1",
     "node-sass": "^4.12.0",
     "react-hot-loader": "^4.11.1",
     "ts-jest": "^24.0.2",
@@ -71,6 +74,9 @@
         "babelConfig": true
       }
     },
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/jest/setup.js"
+    ],
     "testURL": "http://localhost/",
     "moduleFileExtensions": [
       "ts",
@@ -90,7 +96,6 @@
       "\\.(css|scss)$": "identity-obj-proxy",
       "^~/(.*)$": "<rootDir>/src/$1"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/src/testHelpers/jestSetup.js",
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest",
       "^.+\\.(ts|tsx)$": "ts-jest",
