@@ -1,0 +1,53 @@
+.main-container {
+  margin: 40px auto;
+  width: 800px;
+}
+
+.images-page {
+  li {
+    list-style: none;
+    padding: 10px;
+    a {
+      color: black;
+      text-decoration: none;
+      &:visited, &:active {
+        color: black
+      }
+    }
+  }
+}
+.image-modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    z-index: 2;
+  }
+
+  .title {
+    color: white;
+    z-index: 2;
+    font-size: 60px;
+    font-weight: 800;
+    text-shadow: 3px 3px black;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
+
+
+.modal-mask {
+  z-index: 1;
+  background: rgba(0,0,0,0.8);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
