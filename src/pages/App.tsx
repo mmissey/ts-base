@@ -1,14 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Images from './images';
 import Landing from './landing';
-import './App.css';
+import './App.scss';
 
 const App: React.FC = () => {
   return (
       <div className="main-container" >
-        <Route path="/" exact component={Landing} />
         <Route path="/images" component={Images} />
+        <Redirect path="/" to="/images" />
       </div>
   );
 }
