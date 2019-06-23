@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Images from './images';
-import Landing from './landing';
 import './App.scss';
 
 const App: React.FC = () => {
