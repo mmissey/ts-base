@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "arrow-spacing": 2,
+    "block-spacing": 2,
+    "import/extensions": 0,
+    "no-const-assign": 2,
+    "no-trailing-spaces": 2,
+    "no-var": 2,
+    "react/jsx-filename-extension": 0,
+    "semi": 2,
+    "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }],
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
+    "no-console": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        "rootPathPrefix": "~",
+        "rootPathSuffix": "src"
+      },
+      "node": {
+        "extensions": [".js",".jsx",".ts", ".tsx"]
+      }
+    }
+  }
+}
