@@ -1,4 +1,4 @@
-interface Image {
+interface ApiImage {
     id: string;
     title: string;
     description: string,
@@ -42,6 +42,22 @@ interface Image {
     points: null,
     score: number,
     is_album: false
+}
+
+interface Image {
+    id: string;
+    title: string;
+    description: string,
+    created: number,
+    type: string, //enum
+    width: number,
+    height: number,
+    views: number,
+    nsfw: false,
+    link: string,
+    mp4: string,
+    gifv: string,
+    hls: string,
 }
 
  type ImagesMap = Record<string, Image>
