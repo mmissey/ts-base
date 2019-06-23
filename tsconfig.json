@@ -1,5 +1,4 @@
 {
-  "extends": "./ts_base.json",
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
@@ -9,38 +8,21 @@
     "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [
-      "es2015",
-      "dom"
-    ],
+    "lib": ["es2015", "dom"],
     "noImplicitAny": true,
     "noErrorTruncation": true,
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "baseUrl": "./src",
-    "types": [
-      "react",
-      "jest"
-    ],
+    "types": ["react", "jest"],
+    "paths": {
+      "~/*": ["./*"]
+    },
     "typeRoots": [
-      "src/types",
-      "node_modules/@types"
-    ],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": false,
-    "strict": false,
-    "forceConsistentCasingInFileNames": false,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+      "src/types", "node_modules/@types"
+    ]
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "**/service.test.ts",
-    "node_modules"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["**/service.test.ts", "node_modules"]
 }

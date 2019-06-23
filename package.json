@@ -3,16 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "24.0.15",
-    "@types/lodash": "^4.14.134",
-    "@types/node": "12.0.10",
-    "@types/react": "16.8.22",
-    "@types/react-dom": "16.8.4",
-    "@types/react-loadable": "^5.5.1",
-    "@types/react-redux": "^7.1.0",
-    "@types/react-router": "^5.0.2",
-    "@types/react-router-dom": "^4.3.4",
     "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.7.0",
     "normalizr": "^3.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -25,16 +17,86 @@
     "redux-observable": "^1.1.0",
     "reselect": "^4.0.0",
     "rxjs": "^6.5.2",
-    "typescript": "3.5.2"
+    "webpack": "^4.35.0"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.15",
+    "@types/lodash": "^4.14.134",
+    "@types/node": "12.0.10",
+    "@types/react": "16.8.22",
+    "@types/react-dom": "16.8.4",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-redux": "^7.1.0",
+    "@types/react-router": "^5.0.2",
+    "@types/react-router-dom": "^4.3.4",
+    "awesome-typescript-loader": "5.2.1",
+    "babel-core": "6.26.3",
+    "babel-eslint": "10.0.2",
+    "babel-jest": "24.8.0",
+    "babel-loader": "8.0.6",
+    "babel-plugin-dynamic-import-node": "2.3.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-plugin-root-import": "6.2.0",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-assign": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-react": "6.24.1",
+    "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "file-loader": "4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "react-hot-loader": "^4.11.1",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "ts-node": "8.3.0",
+    "tslint": "5.18.0",
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.2",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "source ./config/development.conf && webpack-dev-server --config ./config/webpack.config.development.ts --history-api-fallback --content-base dist/",
+    "build": "rm -rf ./dist && NODE_ENV=production webpack --config ./config/webpack.config.production.ts",
+    "test": "jest"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true
+      }
+    },
+    "testURL": "http://localhost/",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/*.test.js?(x)",
+      "<rootDir>/src/**/*.test.ts?(x)"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "^~/(.*)$": "<rootDir>/src/$1"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/src/testHelpers/jestSetup.js",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    }
   },
   "browserslist": {
     "production": [

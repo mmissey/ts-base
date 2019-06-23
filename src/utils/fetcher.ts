@@ -9,6 +9,13 @@ const getAuthToken = (): string => {
   return '';
 };
 
+const getClientId = (): string => {
+  if (process.env.IMGUR_CLIENT_ID) {
+    return process.env.IMGUR_CLIENT_ID;
+  }
+  return '';
+};
+
 type Fetcher = (
   path: string,
   opts?: {
@@ -36,7 +43,7 @@ export const fetcher: Fetcher = (
     method,
     body: JSON.stringify(body),
     headers: new Headers({
-      Authorization: `Client-ID ${getAuthToken()}`
+      Authorization: `Client-ID ${getClientId()}`
     }),
   });
 };
