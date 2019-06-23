@@ -1,9 +1,11 @@
-import fetcher from '../../utils/fetcher';
+import fetcher from '~/utils/fetcher';
 import { toNormalizedList } from './schemas';
-import { throwErrorUnlessOk } from '../../utils/errorUnlessOk';
+import { throwErrorUnlessOk } from '~/utils/errorUnlessOk';
 
 export const fetchSubredditImages = (subreddit: string): Promise<ImagesMap> => {
   return fetcher(
-    `gallery/r/${subreddit}`
+    `gallery/r/${subreddit}`,
+    () => import(/* webpackChunkName: "mocks" */ '../../../_mocks/images'),
+    (mocks) => mocks.fetchSubredditImages(),
   ).then(throwErrorUnlessOk).then((json) => toNormalizedList(json.data));
 };
