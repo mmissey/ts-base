@@ -1,0 +1,29 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }],
+    "react"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-object-assign",
+    ["babel-plugin-root-import", {
+      "rootPathSuffix": "src"
+    }]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
+    },
+    "test": {
+      "plugins": ["dynamic-import-node", "require-context-hook"]
+    }
+  }
+}
