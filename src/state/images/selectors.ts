@@ -4,7 +4,7 @@ import { createSelector, OutputSelector } from 'reselect';
 const imagesById = (state: RootState) => state.images;
 
 export const getImagesToArray: OutputSelector<
-  any,
+  RootState,
   Image[],
   (res: ImagesMap) => Image[]
 > = createSelector([imagesById], (images): Image[] => values(images));

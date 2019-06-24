@@ -4,7 +4,7 @@ import { createSelector, OutputSelector } from 'reselect';
 const usersById = (state: RootState) => state.users;
 
 export const getUsersToArray: OutputSelector<
-  any,
+  RootState,
   User[],
   (res: UsersMap) => User[]
 > = createSelector([usersById], (users): User[] => values(users));
