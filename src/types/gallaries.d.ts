@@ -1,0 +1,71 @@
+interface Tag {
+    name: string,
+    display_name: string,
+    followers: number,
+    total_items: number,
+    following: false,
+    background_hash: string,
+    thumbnail_hash: string,
+    accent: string,
+    background_is_animated: false,
+    thumbnail_is_animated: false,
+    is_promoted: false,
+    description: string,
+    logo_hash: string,
+    logo_destination_url: string,
+    description_annotations: Record<string, string>
+}
+
+interface ApiGallery {
+    id: string,
+    title: string,
+    description: string,
+    datetime: number,
+    cover: string,
+    cover_width: number,
+    cover_height: number,
+    account_url: string,
+    account_id: number,
+    privacy: string,
+    layout: string,
+    views: number,
+    link: string,
+    ups: number,
+    downs: number,
+    points: number,
+    score: number,
+    is_album: boolean,
+    vote: number,
+    favorite: boolean,
+    nsfw: boolean,
+    section: string,
+    comment_count: number,
+    favorite_count: number,
+    topic: string,
+    topic_id:number,
+    images_count: number,
+    in_gallery: boolean,
+    is_ad: boolean,
+    tags: Tag[],
+    ad_type: number,
+    ad_url: string,
+    in_most_viral: boolean,
+    include_album_ads: boolean,
+    images: Image[]
+}
+
+interface Gallery {
+    id: string,
+    title: string,
+    description: string,
+    datetime: number,
+    cover: string,
+    link: string,
+    isAlbum: boolean,
+    nsfw: boolean,
+    section: string,
+    imagesCount: number,
+    images: Image['id'][]
+}
+
+type GalleriesMap = Record<string, Gallery>

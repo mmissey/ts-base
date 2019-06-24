@@ -15,9 +15,9 @@ import {
 const fetchImagesEpic = (action$: ActionsObservable<ReturnType<typeof Images.Actions.fetchImages>>):
 Observable<
   ReturnType<
-  | typeof Images.Actions.fetchImages
-  | typeof Images.Actions.fetchImagesSuccess
-  | typeof Images.Actions.fetchImagesFailure
+| typeof Images.Actions.fetchImages
+| typeof Images.Actions.fetchImagesSuccess
+| typeof Images.Actions.fetchImagesFailure
   >
 > =>
   action$.pipe(

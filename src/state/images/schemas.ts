@@ -13,7 +13,7 @@ export const toNormalized = (adaptedImage: Image) => {
   return get(normalized, 'entities.images', {});
 };
 
-export const toNormalizedList = (adaptedNotificationArray: Image[]) => {
-  const normalized = normalize(adaptedNotificationArray, imageListSchema);
+export const toNormalizedList = (adaptedImageArray: Image[]) => {
+  const normalized = normalize(adaptedImageArray, imageListSchema);
   return get(normalized, 'entities.images', {});
 };
