@@ -18,7 +18,7 @@ export type WithImageProps = StateProps;
 
 
 /**
- * Connecter that fetches and adds props.images[];
+ * Connecter that fetches and adds props.image;
  * @param {React.ComponentType} Cmp React Component to be wrapped
  */
 export const withImage = <P extends any>(Cmp: React.ComponentType<P>) =>

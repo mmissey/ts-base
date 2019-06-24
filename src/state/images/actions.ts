@@ -2,7 +2,7 @@ import ActionTypes from './actionTypes'
 import { createAction, ActionsUnion } from '../../state/actionHelpers';
 
 export const Actions = {
-    fetchImages: ( subreddit: string ) =>
+    fetchImages: (subreddit: string) =>
         createAction(ActionTypes.fetchImages, { subreddit }),
     fetchImagesSuccess: (images: ImagesMap) =>
         createAction(ActionTypes.fetchImagesSuccess, { images }),
