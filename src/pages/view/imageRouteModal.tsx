@@ -1,8 +1,5 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Styles from './styles/center-modal.module.scss';
-
-import { ModalTransition, RouteModal } from '~/_common/routeModal';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import withImage, { WithImageProps } from '../images/containers/withImage';
 
