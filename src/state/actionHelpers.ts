@@ -14,4 +14,4 @@ export function createAction<T extends string, P>(type: T, payload?: P) {
  * `A` is an object with a bunch of key: createAction() in it.
  *  Type ActionsUnion is all of the return types for each of those createActions (SimpleAction, ActionWithPayload)
  */
-export type ActionsUnion< A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>;
+export type ActionsUnion<A extends ActionCreatorsMapObject> = ReturnType<A[keyof A]>;

@@ -1,7 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as Images from '../../../state/images/actions';
-import { getImagesToArray } from '../../../state/images/selectors';
+import * as Images from '~/state/images/actions';
+import { getImagesToArray } from '~/state/images/selectors';
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = typeof mapDispatchToProps;
+export type WithImagesProps = StateProps & DispatchProps;
 
 const mapStateToProps = <T extends {}>(state: RootState, ownProps: T) => {
   const images = getImagesToArray(state);
@@ -14,11 +18,6 @@ const mapStateToProps = <T extends {}>(state: RootState, ownProps: T) => {
 const mapDispatchToProps = {
   fetchImages: Images.Actions.fetchImages
 };
-
-type StateProps = ReturnType<typeof mapStateToProps>;
-type DispatchProps = typeof mapDispatchToProps;
-export type WithImagesProps = StateProps & DispatchProps;
-
 
 const ImagesFetcher = <P extends {}>(Component: React.ComponentType<P>) =>
   class extends React.Component<P & WithImagesProps> {

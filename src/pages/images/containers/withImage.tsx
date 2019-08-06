@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as Images from '../../../state/images/actions';
+import * as Images from '~/state/images/actions';
 import { RouteComponentProps } from 'react-router-dom';
 
 interface RequiredProps extends RouteComponentProps<{id: string}>{}
+type StateProps = ReturnType<typeof mapStateToProps>;
+export type WithImageProps = StateProps;
 
 const mapStateToProps = <T extends {}>(state: RootState, ownProps: T & RequiredProps) => {
     const imageID = ownProps.match.params.id;
@@ -11,11 +13,6 @@ const mapStateToProps = <T extends {}>(state: RootState, ownProps: T & RequiredP
         image: state.images[imageID]
     }
 };
-
-
-type StateProps = ReturnType<typeof mapStateToProps>;
-export type WithImageProps = StateProps;
-
 
 /**
  * Connecter that fetches and adds props.image;

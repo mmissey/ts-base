@@ -1,5 +1,5 @@
 import ActionTypes from './actionTypes'
-import { createAction, ActionsUnion } from '../../state/actionHelpers';
+import { createAction, ActionsUnion } from '~/state/actionHelpers';
 
 export const Actions = {
     fetchUser: (id: string) =>

@@ -5,6 +5,7 @@ import epics from './rootEpic';
 // import AnalyticsMiddleware from './analyticsMiddleware';
 
 const epicMiddleware = createEpicMiddleware();
+
 const store = createStore(
     combinedReducers,
     {},
@@ -14,6 +15,6 @@ const store = createStore(
     ]),
 );
 
-epicMiddleware.run(combineEpics(...epics as Array<Epic<any>>));
+epicMiddleware.run(combineEpics(...epics));
 
 export default store;
