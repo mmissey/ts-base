@@ -9,6 +9,6 @@ export const Actions = {
     fetchImagesFailure: (error: string) =>
         createAction(ActionTypes.fetchImagesFailure, { error }),
 };
-export type Actions = ActionsUnion<typeof Actions>;
 
+export type Actions = ActionsUnion<typeof Actions>;
 export default Actions;

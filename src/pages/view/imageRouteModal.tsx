@@ -1,29 +1,21 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, FC } from 'react';
 import ReactDOM from 'react-dom';
 import Styles from './styles/center-modal.module.scss';
 
 import { ModalTransition, RouteModal } from '~/_common/routeModal';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+
 import withImage, { WithImageProps } from '../images/containers/withImage';
 
-export interface ImageModalProps extends RouteComponentProps<{id: string}> {
-  onClose: (evt: any) => void;
+export interface ImageModalProps {
+  onClose: (evt: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const evaluateRenderProp: (
-  prop: string | React.ReactNode | (() => React.ReactNode)
-) => React.ReactNode = prop => {
-  return prop instanceof Function ? prop() : prop;
-};
-
-export class CenterModal extends Component<
+export class ImageRouteModal extends Component<
 ImageModalProps
+& RouteComponentProps<{id: string}>
 & WithImageProps
 > {
-  public componentDidUpdate(prevProps: ImageModalProps) {
-    // modalWillReceiveProps(this.props, prevProps);
-  }
-
   public render() {
     const { onClose, image, location: { pathname } } = this.props;
     const isOpen = pathname === '/view/:id';
@@ -39,4 +31,6 @@ ImageModalProps
   }
 }
 
-export default withRouter(withImage(CenterModal));
+export default withRouter(
+  withImage(ImageRouteModal)
+);

@@ -16,11 +16,14 @@ interface ApiUser {
     is_blocked: boolean 
 }
 
+//import { Colors } from './enums';
+
 interface User {
     id: number,
     url: string,
     bio: string,
     avatar: string,
+    //themeColor?: Colors
 }
 
 type UsersMap = Record<string, User>

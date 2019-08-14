@@ -5,3 +5,8 @@ export enum ActionTypes {
 }
 
 export default ActionTypes;
+// 
+
+// Both a JS Object and a TS Type
+// const fetch = ActionTypes.fetchImages;
+// type MyEnum = ActionTypes.fetchImages;

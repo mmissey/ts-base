@@ -12,7 +12,9 @@ import {
   fetchSubredditImages,
 } from './service';
 
-const fetchImagesEpic = (action$: ActionsObservable<ReturnType<typeof Images.Actions.fetchImages>>):
+const fetchImagesEpic = (action$: ActionsObservable<
+  ReturnType<typeof Images.Actions.fetchImages>
+>):
 Observable<
   ReturnType<
 | typeof Images.Actions.fetchImages
