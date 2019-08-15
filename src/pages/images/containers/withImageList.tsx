@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import * as Images from "~/state/images/actions";
 import { getImagesToArray } from "~/state/images/selectors";
 
-
 const mapStateToProps = <T extends {}>(state: RootState, ownProps: T) => {
-  const images = getImagesToArray(state);
+  const imageList = getImagesToArray(state);
 
   return {
-    images
+    imageList
   };
 };
 
@@ -25,21 +24,23 @@ interface InjectedProps {
 
 export type WithImageListProps = StateProps & DispatchProps & InjectedProps;
 
-const ImagesFetcher = <P extends WithImageListProps>(Component: React.ComponentType<P>) =>
+const ImagesFetcher = <P extends WithImageListProps>(
+  Component: React.ComponentType<P>
+) =>
   class extends React.Component<P, InjectedProps> {
     static displayName = `ImagesFetcher(${Component.name})`;
-    state = { isLoading: false }
-    
+    state = { isLoading: false };
+
     public componentDidMount() {
-      if (!this.props.images.length && !this.state.isLoading) {
+      if (!this.props.imageList.length && !this.state.isLoading) {
         this.props.fetchImages("wheredidthesodago");
-        this.setState({ isLoading: true })
+        this.setState({ isLoading: true });
       }
     }
 
-    public componentDidUpdate(prevProps: P) {
-      if (this.props.images && this.state.isLoading) {
-        this.setState({ isLoading: false })
+    public componentDidUpdate() {
+      if (this.props.imageList.length && this.state.isLoading) {
+        this.setState({ isLoading: false });
       }
     }
 
@@ -52,7 +53,9 @@ const ImagesFetcher = <P extends WithImageListProps>(Component: React.ComponentT
  * Connecter that fetches and adds props.images[];
  * @param {React.ComponentType} Cmp React Component to be wrapped
  */
-export const withImageList = <P extends Contains<WithImageListProps>>(Cmp: React.ComponentType<P>) =>
+export const withImageList = <P extends Contains<WithImageListProps>>(
+  Cmp: React.ComponentType<P>
+) =>
   connect<StateProps, DispatchProps, Subtract<P, WithImageListProps>>(
     mapStateToProps,
     mapDispatchToProps

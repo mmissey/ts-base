@@ -1,5 +1,5 @@
-import ActionTypes from './actionTypes';
-import * as Images from './actions';
+import ActionTypes from "./actionTypes";
+import * as Images from "./actions";
 
 const images = (state: ImagesMap = {}, action: Images.Actions) => {
   switch (action.type) {
