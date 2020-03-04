@@ -1,4 +1,4 @@
-This project is a bare, bootstrapping, version of the architecture and libraries that I have been very found of over the past year or so. (2018-2019)
+This project is a bare, bootstrapping, version of the architecture and libraries that I have been very fond of over the past year or so. (2018-2019)
 It's also a great demo application for talks about TypeScript or State-flow architecture.
 
 ![Image of State Flow](https://github.com/mmissey/ts-base/raw/master/docs/stateflow.png)
