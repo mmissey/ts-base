@@ -3,9 +3,9 @@ It's also a great demo application for talks about TypeScript or State-flow arch
 
 ## About the Architecture
 
-The main goal of architecting a React application in this fashion is for long term maintainability. I've been biten too many times by trying to over-optimize, over-minify, and stuff too much code into a growing frontend app. The result can be a sprawling and tangled mess. 
+The main goal of architecting a React application in this fashion is for long term maintainability. I've been bitten too many times by trying to over-optimize, over-minify, and stuff too much code into a growing frontend app. The result can be a sprawling and tangled mess. 
 
-By using the idea of seperation of concerns, we can make sure that everything building block has its place. At first that just _sounded_ like a good idea, but with 3 years of this architecture in production, it's become a reality. When a bug appears, it's usually pretty clear what area of the state flow that bug must have come from, and therefore it's easier to find and fix.
+By using the idea of separation of concerns, we can make sure that everything building block has its place. At first that just _sounded_ like a good idea, but with 3 years of this architecture in production, it's become a reality. When a bug appears, it's usually pretty clear where that bug must have come from, and therefore it's easier to find and fix.
 
 ## The Libraries
 
