@@ -94,6 +94,7 @@ If the API changes in the future, rather than search through our code looking fo
 
 #### Normalizers
 `adapter → normalizer`
+
 As previously mentioned, each entity in our store should be a normalized hashmap of items. That is, if I look at our store I should see:
 
 ```entity: {
@@ -112,6 +113,7 @@ Keeping the store simple and flat reduces a lot of the cognitive overhead as wel
 
 #### Reducers
 `epic → action → reducer`
+
 The adapter and normalizer portions of the state flow actually take place within the service layer, and the service layer takes place within the epic layer. So the epic calls the service, which fetches the data, gets a response, and pipes it through the adapter and normalizer before returning the normalized response to the epic. 
 
 The epic has no concept of the adapter or normalizer. It just calls the service and receives a response that either looks just like the shape of our store, or an error. Following that `actions in : actions out` pattern, the epic fires the success action and that is what the reducer is listening for.
