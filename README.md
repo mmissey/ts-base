@@ -38,6 +38,7 @@ But before we get into the role of each piece of the pipeline, let’s talk abou
 #### Route State
 
 *Trust the URL!* 
+
 A browser’s job is to navigate the internet, and as such, it is very good at keeping track of its own location. Rather than have generic page routes and lots of component state. We should aim to keep as much state as possible in the URL.
 
 For instance: if a user clicks a trash can button that opens a delete modal, rather than keep the state of whether that modal is open in component state or even Redux, we keep it in the url. 
@@ -48,12 +49,14 @@ Not only does this pattern prevent the strange user experience that happens when
 
 #### Containers
 `store → container → component`
+
 Containers are a common pattern with Redux. In fact, ~they are~ before React Hooks, they used to be the most common way to get application state into a component. Containers are higher order components (HoCs) that allow us to use functions called `MapStateToProps` and `MapDispatchToProps` to inject a component with the state and actions that it may need to call directly on its props.
 
 Within many of the containers, we use yet another HoC to immediately call one of the actions that we just injected onto the props. We call these Fetchers. They work by calling a fetch action as soon as the component is mounted.
 
 #### Epics
 `component → action → epic`
+
 Epics are what Redux-observables uses to handle asynchronous actions. It converts Redux’s dispatch into a stream, denoted as action$, and allows us to subscribe to this stream. We can wait for specific actions by using the `action$.ofType()` operator, and then use RxJS operators to manipulate the payload and fire additional actions. The most important concept of an epic is:
 
 Actions In : Actions Out
