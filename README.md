@@ -13,7 +13,7 @@ The main technologies in this architecture stack are:
 * TypeScript
 * React
 * Redux
-* Redux-Oberservables (RxJS)
+* Redux-Observables (RxJS)
 * Webpack
 
 ### Honorable Mentions
